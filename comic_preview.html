@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}ComicCraft — Preview{% endblock %}
+
+{% block content %}
+<div class="hero compact">
+    <p class="eyebrow">YOUR COMIC</p>
+    <h1>Comic preview</h1>
+    <p class="lead">Review all five panels before saving your comic.</p>
+</div>
+
+<div class="actions">
+    <a class="button" href="{{ pdf_path }}" download>⬇ Download Your Comic as PDF</a>
+    <a class="button secondary" href="/">Create Another Comic</a>
+</div>
+
+{% for panel in layout %}
+<article class="panel card">
+    <div class="panel-heading">
+        <span class="panel-number">PANEL {{ panel.panel_number }}</span>
+        <h2>{{ panel.title }}</h2>
+    </div>
+
+    <img class="comic-image" src="{{ panel.image_path }}" alt="Illustration for panel {{ panel.panel_number }}">
+
+    <p class="scene"><em>{{ panel.scene_description }}</em></p>
+
+    <div class="story-box">
+        <p><strong>Caption:</strong> {{ panel.caption }}</p>
+        <p><strong>Narration:</strong> {{ panel.narration }}</p>
+    </div>
+
+    <details>
+        <summary>View image prompt</summary>
+        <p class="prompt">{{ panel.image_prompt }}</p>
+    </details>
+</article>
+{% endfor %}
+{% endblock %}

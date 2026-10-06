@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}ComicCraft — Error{% endblock %}
+
+{% block content %}
+<section class="card error">
+    <h1>Something went wrong</h1>
+    <p class="error-message">{{ error }}</p>
+    <h3>Quick checks</h3>
+    <ul>
+        <li>Make sure GEMINI_API_KEY is present in .env.</li>
+        <li>If using Hugging Face images, make sure HF_TOKEN is present.</li>
+        <li>Check the VS Code terminal for the full error.</li>
+    </ul>
+    <a class="button" href="/">Back to ComicCraft</a>
+</section>
+{% endblock %}
